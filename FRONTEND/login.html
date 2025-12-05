@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Cadastro</title>
+
+<style>
+/* Reset rápido */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Fundo */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+/* Container dos cards */
+.container {
+    display: flex;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 700px;
+    max-width: 95%;
+}
+
+/* Card individual */
+.card {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Inputs */
+input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px;
+    transition: border 0.2s ease;
+}
+
+input:focus {
+    border-color: #2575fc;
+    outline: none;
+}
+
+/* Botões */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #2575fc;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #1a5dcc;
+}
+
+/* Link para alternar */
+.switch-link {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #2575fc;
+    cursor: pointer;
+    text-align: center;
+}
+
+.switch-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <div class="card" id="loginCard">
+        <h2>Login</h2>
+        <input type="text" id="loginEmail" placeholder="E-mail" required>
+        <input type="password" id="loginSenha" placeholder="Senha" required>
+        <button onclick="login()">Entrar</button>
+        <div class="switch-link" onclick="toggleCard('cadastroCard')">Não tem conta? Cadastre-se</div>
+    </div>
+
+    <!-- CADASTRO -->
+    <div class="card" id="cadastroCard" style="display:none;">
+        <h2>Cadastro</h2>
+        <input type="text" id="cadEmail" placeholder="E-mail" required>
+        <input type="password" id="cadSenha" placeholder="Senha" required>
+        <input type="text" id="cadNome" placeholder="Nome completo" required>
+        <button onclick="cadastrar()">Cadastrar</button>
+        <div class="switch-link" onclick="toggleCard('loginCard')">Já tem conta? Faça login</div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+<script src="./js/cadastro.js">
+
+</script>
+
+</body>
+</html>

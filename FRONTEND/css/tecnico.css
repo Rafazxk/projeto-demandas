@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* text-align: center; */
+}
+body{
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  text-align: center;
+}
+.header{
+  padding: 30px;
+}
+.main{
+  height: auto;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+.skills {
+  height: 90vh;
+  width: 90vw;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+}
+.skill{
+  cursor: pointer;
+  width: 80%;
+  height: 10vh;
+  border: 2px solid black;
+}
