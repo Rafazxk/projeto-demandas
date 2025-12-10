@@ -1,9 +1,15 @@
+// receber funções do arquivo demandaService.js
+
 const {
   listarDemandasService,
   criarDemandaService,
   editarDemandaService
 } = require('../services/demandaService');
 
+// listar demandas 
+// recebe uma requisição com o id do usuario que está realizando essa função
+// e envia uma resposta
+// return res.status(200).json(demandas);
 async function listarDemandas(req, res){
   try{
     const usuario_id = req.user.id;
@@ -18,6 +24,11 @@ async function listarDemandas(req, res){
     console.log("user: ", req.user)
   }
   
+  
+  //criar demandas 
+  //recebe a requisição do frontend com o id do usuario selecionado
+  // recebe nos parametros os campos que o frontend devera enviar
+  //enviar uma resposta de confirmação, caso funcione
 async function criarDemanda(req, res) {
   try {
     const usuario_id = req.user.id;
@@ -48,6 +59,11 @@ async function criarDemanda(req, res) {
   }
 }
 
+
+//editar demandas
+// responsavel pelo tecnico ou administrador 
+//recebe todas as demandas, podendo filtrar, editar ou excluir essas demandas
+// apos receber todos os parametros, ele envia uma resposta, caso funcione
 async function editarDemanda(req, res){
   try{
   const id = req.params.id;
@@ -66,6 +82,7 @@ async function editarDemanda(req, res){
   console.log("entrou na rota");
 }
 
+// exportar para arquivos de fora
 module.exports = {
   listarDemandas,
   criarDemanda,

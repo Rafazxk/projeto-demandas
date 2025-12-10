@@ -3,10 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Usuário - Demandas</title>
+  <link rel="stylesheet" href="../css/usuario.css">
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 </head>
 <body>
-  <h1>usuario</h1>
+
+<header>
+  <h2>Bem-vindo, <span id="nomeUsuario"></span></h2>
+  <button onclick="logout()">Sair</button>
+</header>
+
+<section>
+  <button id="btnNovaDemanda">Criar Demanda</button>
+</section>
+
+<!-- Lista de demandas -->
+<h3>Minhas Demandas</h3>
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Prioridade</th>
+      <th>Status</th>
+      <th>Data</th>
+    </tr>
+  </thead>
+  <tbody id="listaDemandas"></tbody>
+</table>
+
+<!-- Modal criação -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h3>Criar Demanda</h3>
+
+    <label>Título</label>
+    <input id="titulo" type="text">
+
+    <label>Descrição</label>
+    <textarea id="descricao"></textarea>
+
+    <label>Prioridade</label>
+    <select id="prioridade">
+      <option value="baixa">Baixa</option>
+      <option value="normal">Normal</option>
+      <option value="alta">Alta</option>
+      <option value="urgente">Urgente</option>
+    </select>
+
+    <label>Setor</label>
+    <input id="setor" type="text">
+
+    <label>Anexo?</label>
+    <input type="checkbox" id="anexo">
+
+    <button onclick="criarDemanda()">Salvar</button>
+    <button onclick="fecharModal()">Cancelar</button>
+  </div>
+</div>
+
+<script src="js/usuario.js"></script>
+
 </body>
 </html>

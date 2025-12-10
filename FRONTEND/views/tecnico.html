@@ -1,35 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/tecnico.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Técnico</title>
+<link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header class="header">
-    <h1>Técnico</h1>
-  </header>
-  <main class="main">
-     <section class="skills">
-       <div class="skill">
-         <h3>DEMANDAS: <span id="qtd_demandas"></span>
-         </h3></div>
-       <div class="skill">
-         <h3>DEMANDAS URGENTES: <span id="qtd_demanda_urgente"></span>
-         </h3></div>
-       <div class="skill">
-         <h3>CONTROLADORIA: <span id="controladoria"></span>
-         </h3></div>
-     </section>
-      <section class="images">
-       <div class="img"></div>
-      </section>
-  </main>
-  
-  
-  
-  
+
+<header class="header">
+  <h1>Painel Técnico</h1>
+</header>
+
+<main class="main">
+
+  <!-- DASHBOARD RESUMO -->
+  <section class="cards">
+
+    <div class="card" onclick="carregarDemandas('aberta')">
+      <h3>Abertas</h3>
+      <span id="qtd_abertas">0</span>
+    </div>
+
+    <div class="card" onclick="carregarDemandas('andamento')">
+      <h3>Em Andamento</h3>
+      <span id="qtd_andamento">0</span>
+    </div>
+
+    <div class="card urgente" onclick="carregarDemandas('urgente')">
+      <h3>Urgentes</h3>
+      <span id="qtd_urgentes">0</span>
+    </div>
+
+    <div class="card" onclick="carregarDemandas('finalizada')">
+      <h3>Finalizadas</h3>
+      <span id="qtd_finalizadas">0</span>
+    </div>
+
+  </section>
+
+
+  <!-- LISTA DE DEMANDAS -->
+  <section class="lista">
+
+    <div class="topo-lista">
+      <h2>Demandas</h2>
+      <input type="text" id="pesquisa" placeholder="Pesquisar..." onkeyup="pesquisar()">
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Prioridade</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-demandas"></tbody>
+    </table>
+
+  </section>
+
+</main>
+
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="fechar" onclick="fecharModal()">&times;</span>
+
+    <h2 id="modal_titulo"></h2>
+    <p id="modal_descricao"></p>
+
+    <label>Status:</label>
+    <select id="modal_status">
+      <option value="aberta">Aberta</option>
+      <option value="andamento">Em andamento</option>
+      <option value="finalizada">Finalizada</option>
+    </select>
+
+    <button onclick="salvarAlteracoes()">Salvar</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+<script src="../index.js"></script>
 </body>
 </html>
